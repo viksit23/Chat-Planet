@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+
+<script type="text/javascript" src="app.js"></script>
+
+<script type="text/javascript" src="signup/signUpService.js"></script>
+<script type="text/javascript" src="signup/signUpController.js"></script>
+
+<script type="text/javascript" src="User/userService.js"></script>
+<script type="text/javascript" src="User/userController.js"></script>
+
+<script type="text/javascript" src="myprofile/myProfileService.js"></script>
+<script type="text/javascript" src="myprofile/myProfileController.js"></script>
+
+<script type="text/javascript" src="friends/FriendService.js"></script>
+<script type="text/javascript" src="friends/FriendController.js"></script>
+
+<script type="text/javascript" src="login/loginService.js"></script>
+<script type="text/javascript" src="login/loginController.js"></script>
+
+<script type="text/javascript" src="home/homeService.js"></script>
+<script type="text/javascript" src="home/homeController.js"></script>
+
+
+<script type="text/javascript" src="aboutus/aboutusService.js"></script>
+<script type="text/javascript" src="aboutus/aboutusController.js"></script>
+
+<script type="text/javascript" src="contactus/contactusService.js"></script>
+<script type="text/javascript" src="contactus/contactusController.js"></script>
+
+<script type="text/javascript" src="blogs/BlogService.js"></script>
+<script type="text/javascript" src="blogs/BlogController.js"></script>
+
+<script type="text/javascript" src="Event/EventService.js"></script>
+<script type="text/javascript" src="Event/EventController.js"></script>
+
+</head>
+<body ng-app="myApp" id="body">
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+   <div>   <img src="resources/images/logo1.png"
+				alt="logo" width="50" height="30">
+      </div>
+       </div>
+       <a class="navbar-brand" href="#home">Home</a> 
+   
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        
+        <li><a href="#aboutus">AboutUs</a></li>
+        <li><a href="#contactus">ContactUs</a></li>
+     <!--    <li><a href="#/user">Users</a></li> -->
+        <li><a href="#/myprofile">My Profile</a></li>
+        <li><a href="#/friend">Friends</a></li>
+        <li><a href="#/blog">Blogs</a></li>
+        <li><a href="#/Event">Events</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+  
+  
+  
+  
+  <!-- 
+  <h2><center><b><i><font face="Verdana" color="black">Welcome to Chat Planet..<br>	</font></i></b></center></h2>
+   -->
+  
+  
+  
+  
+<div ng-view></div>
+
+
+
+
+</body>
+</html>
