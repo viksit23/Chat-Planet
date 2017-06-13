@@ -29,7 +29,7 @@ app.controller('myProfileController',['$scope','$filter','myProfileService','$lo
                                   	{
                                   		$scope.LoginEmail = $window.sessionStorage.getItem("currentUser");
                                   		
-                                  		$scope.LoginStatus = false;
+                                  		$scope.LoginStatus = true;
 
                                   		$scope.currentUser = $window.sessionStorage.getItem("currentUser");
                                   		

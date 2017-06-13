@@ -36,4 +36,9 @@ public class EventDAOImpl  implements EventDAO{
 		List<Event> list = session.createQuery("from Event where posted="+1).list();	
 		return list;
 	}
+	public void deleteEvent(Event event) {
+		Session session = sessionFactory.getCurrentSession();
+		session.delete(event);
+	}
+	
 }

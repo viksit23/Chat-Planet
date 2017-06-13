@@ -1,4 +1,4 @@
-app.controller('signUpController',[ '$scope' , 'signUpService' , function($scope , $signUpService) 
+app.controller('signUpController',[ '$scope' , '$location','signUpService' , function($scope ,$location, $signUpService) 
 {   
 	if( document.URL.endsWith('/#/home') ){$('#body').css({'background': "url('resources/images/bg2.jpg')"});}else{$('#body').css({'background': "none"});}
 	$scope.password='';
@@ -102,7 +102,7 @@ app.controller('signUpController',[ '$scope' , 'signUpService' , function($scope
 				console.log(response);
 				
 				$scope.ServerResponse = response.msg;
-				
+				$location.path('/home');
 				window.setTimeout(function(){
 					$scope.$apply( $scope.ServerResponse = '' );					
 				}, 5000);

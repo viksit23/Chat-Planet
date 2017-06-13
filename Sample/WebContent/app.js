@@ -41,5 +41,30 @@ app.config(function($routeProvider) {
     .when("/Event", {
         templateUrl : "Event/Event.html",
         controller: "EventController"	
-    });
+    })
+    .when("/job", {
+        templateUrl : "job/job.html",
+        controller: "jobController"	
+    })
+    
+    .when("/Chat", {
+        templateUrl : "Chat/Chat.html",
+        controller: "ChatController"	
+    })
+    .when('/Chat/:secondUser', {
+
+		templateUrl : "Chat/Chat.html",
+		controller : "ChatController"
+
+	})
+    .when("/GroupChat", {
+        templateUrl : "Groupchat/GroupChat.html",
+        controller: "GroupChatController"	
+    })
+    
+    .otherwise("/home", {
+        templateUrl : "home/home.html",
+        controller: "homeController"	
+    })
+    
 });

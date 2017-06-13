@@ -5,6 +5,9 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link type="text/css" rel="stylesheet" href="resources/references/css/sample.css"/>
+  <link type="text/css" rel="stylesheet" href="resources/references/css/bootstrap.css"/>
+  <link type="text/css" rel="stylesheet" href="resources/references/css/bootstrap.min.css"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -43,8 +46,17 @@
 <script type="text/javascript" src="Event/EventService.js"></script>
 <script type="text/javascript" src="Event/EventController.js"></script>
 
+<script type="text/javascript" src="job/jobService.js"></script>
+<script type="text/javascript" src="job/jobController.js"></script>
+
+<script type="text/javascript" src="Chat/ChatService.js"></script>
+<script type="text/javascript" src="Chat/ChatController.js"></script>
+
+<script type="text/javascript" src="Groupchat/GroupChatService.js"></script>
+<script type="text/javascript" src="Groupchat/GroupChatController.js"></script>
+
 </head>
-<body ng-app="myApp" id="body">
+<body ng-app="myApp" id="body"  ng-controller="loginController">
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -70,10 +82,16 @@
         <li><a href="#/friend">Friends</a></li>
         <li><a href="#/blog">Blogs</a></li>
         <li><a href="#/Event">Events</a></li>
+        <li><a href="#/job">Jobs</a></li>
+        <!-- <li><a href="#/Chat">Chat</a></li> -->
+        <li><a href="#/GroupChat">Group Chat</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <li><a href="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <!-- <li>{{LoginStatus}}</li> -->
+        <li ng-if="LoginStatus"><a href="#logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        
       </ul>
     </div>
   </div>

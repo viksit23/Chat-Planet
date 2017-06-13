@@ -40,7 +40,7 @@
 						<img ng-src="resources/images/{{user.friendId.email}}.jpg "
 							class="img-circle" style="float: left; margin-right: 20px"
 							width="80" height="80"
-							onerror="this.src='resources/images/user.jpg'" width="80"
+							onerror="this.src='resources/images/login.png'" width="80"
 							height="80" id="sm_profilepic" /> <span
 							style="font-size: x-large">{{user.friendId.username}}</span></br> <i
 							class="fa fa-map-marker" aria-hidden="true"></i>&nbsp&nbsp{{user.friendId.address}}
@@ -95,6 +95,10 @@
 							<i class="fa fa-envelope-o" aria-hidden="true"></i>&nbsp&nbsp{{user.friendId.email}}<br />
 
 						</div>
+						<div class="pull-right">
+								<a href="#/Chat/{{user.friendId.email}}"
+									class="btn btn-primary btn-sm">Chat</a>
+							</div>
 
 						
 							</div>
@@ -105,7 +109,7 @@
 
 				</div>
 			</div>
-//
+
 
 <div class="container">
 		

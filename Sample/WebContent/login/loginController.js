@@ -10,9 +10,11 @@ app.controller("loginController",['loginService','$scope','$location','$window',
 	
 	if( $window.sessionStorage.getItem("currentUser") != null && $window.sessionStorage.getItem("currentUser") != undefined )
 	{
+		$scope.currentUserRole = $window.sessionStorage.getItem("currentUserRole");
+		console.log($scope.currentUserRole);
 		$scope.LoginEmail = $window.sessionStorage.getItem("currentUser");
 		
-		$scope.LoginStatus = false;
+		$scope.LoginStatus = true;
 
 		//alert( $location.path() );
 		//alert( $location.path().split('/')[2] );
@@ -23,10 +25,14 @@ app.controller("loginController",['loginService','$scope','$location','$window',
 	
 	$scope.logout = function()
 	{
-		$window.sessionStorage.clear();
-		$scope.LoginStatus = true;
+		//$window.sessionStorage.empty();
 		
-		$location.path('/myprofile');
+		sessionStorage.clear();
+		
+		//$window.sessionStorage.setItem("currentUser",null);
+		$scope.LoginStatus = false;
+		
+		$location.path('/home');
 	}
 	
 	$scope.login = function()
@@ -49,16 +55,28 @@ app.controller("loginController",['loginService','$scope','$location','$window',
 				window.setTimeout(function(){
 					$scope.$apply( $scope.InvalidLogin = false );					
 				}, 5000);
+				
+				$scope.LoginStatus = false;
+				console.log( $scope.LoginStatus );
+				
 			}	
 			else
 			{
 				$window.sessionStorage.setItem("currentUser", $scope.LoginEmail);
 				$window.sessionStorage.setItem("currentUserRole", response.role);
-				
+			
 				$location.path('/myprofile');
-				$scope.LoginStatus = false;
+				$scope.LoginStatus = true;
+				console.log( $scope.LoginStatus );
 			}
+			/*
+			$scope.logout = function()
+			{
+				$window.sessionStorage.clear();
+				$scope.LoginStatus = true;
 				
+				$location.path('/home');
+			}*/
 			
 		});
 	

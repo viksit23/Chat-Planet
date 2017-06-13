@@ -12,12 +12,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import com.samplebackend.Event.Event;
 
 @Entity
-
+@Table(name="Users")
 public class User {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	
@@ -29,37 +30,12 @@ private String password;
 private String cpassword;
 private String address;
 private String phone;
-
-	//
-
-/*@OneToMany(fetch=FetchType.LAZY,mappedBy="eventId")
-private Set<Event> eventId;
-*/
-	//
-
-@ManyToMany(fetch = FetchType.LAZY, mappedBy = "User")
-public Set<Event> getEvent() {
-	return this.getEvent();
-}
-
+private boolean enabled=true;
+private String role="ROLE_USER";
 
 public String getUsername() {
 	return username;
 }
-
-/*public Set<Event> getEventId() {
-	return eventId;
-}
-
-public void setEventId(Set<Event> eventId) {
-	this.eventId = eventId;
-}*/
-
-//
-
-
-
-
 
 
 public long getUserId() {
@@ -106,4 +82,27 @@ public String getPhone() {
 public void setPhone(String phone) {
 	this.phone = phone;
 }
+
+
+public boolean isEnabled() {
+	return enabled;
+}
+
+
+public void setEnabled(boolean enabled) {
+	this.enabled = enabled;
+}
+
+
+public String getRole() {
+	return role;
+}
+
+
+public void setRole(String role) {
+	this.role = role;
+}
+
+
+
 }

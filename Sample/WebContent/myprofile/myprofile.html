@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>My profile</title>
 </head>
 <body ng-app="myApp" ng-controller="myProfileController">
 	<div></div>
@@ -11,12 +11,19 @@
 				<br/>
 	
 	
+	
+
+				<!-- <img ng-src="{{userdetails.Image}}" width="250" height="250"
+					id="profilepic" onerror="this.src='resources/images/login.png'">
+				 -->	
+					
+					
 			<!-- 	for profile pic  -->
 				<input type="file" id="myfile" style="visibility: hidden;" 	onchange="angular.element(this).scope().setFile(this)"/>
 				
 				
 				
-	<img ng-src="/com.samplebackend/resources/images/{{userImage}}" width="250" height="250"><br/>
+	<img ng-src="/com.samplebackend/resources/images/user_{{userId}}.jpg" width="250" height="250"><br/>
 						<button type="button" class="btn btn-link"
 					ng-click="openFileChooser();">Change Picture</button>
 					

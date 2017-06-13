@@ -11,9 +11,11 @@ app.controller('FriendController',[ '$scope' , 'FriendService' ,'$window' , func
 	
 	if( $window.sessionStorage.getItem("currentUser") != null && $window.sessionStorage.getItem("currentUser") != undefined )
 	{
+		$scope.currentUserRole = $window.sessionStorage.getItem("currentUserRole");
+		console.log($scope.currentUserRole);
 		$scope.LoginEmail = $window.sessionStorage.getItem("currentUser");
 		
-		$scope.LoginStatus = false;
+		$scope.LoginStatus = true;
 
 		$scope.currentUser = $window.sessionStorage.getItem("currentUser");
 		

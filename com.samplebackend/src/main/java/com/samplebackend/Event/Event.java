@@ -18,12 +18,14 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.Type;
 
 import com.samplebackend.user.User;
 @Entity
 public class Event {
 
+	
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private long eventId;
 	private String title;
@@ -38,27 +40,6 @@ public class Event {
 	private String eventFrom;
 	private String eventTo;
 
-	/*@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "userId", nullable = false)
-	private User u;
-	
-	public User getU() {
-		return u;
-	}
-	public void setU(User u) {
-		this.u = u;
-	}*/
-	
-	@ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-	@JoinTable(name = "Event_User", joinColumns = {
-			@JoinColumn(name = "eventId", nullable = false, updatable = false) },
-			inverseJoinColumns = { @JoinColumn(name = "userId",
-					nullable = false, updatable = false) })
-	public Set<User> getuserId() {
-		return this.getuserId();
-		}
-	
-	
 	
 	public long getEventId() {
 		return eventId;
@@ -102,9 +83,5 @@ public class Event {
 	public void setEventTo(String eventTo) {
 		this.eventTo = eventTo;
 	}
-	
-	
-	
-	
-	
+		
 }

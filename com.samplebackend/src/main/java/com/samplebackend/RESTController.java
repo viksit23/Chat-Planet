@@ -257,7 +257,7 @@ public class RESTController {
 			User u = userdao.getUserByEmail(data.get("Email").toString());
 			
 			json.put("msg", "Login Successful");
-			//json.put("role", u.getRole());
+			json.put("role", u.getRole());
 			
 		}
 		

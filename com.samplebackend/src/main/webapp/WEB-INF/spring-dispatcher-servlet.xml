@@ -7,13 +7,17 @@
    xmlns:aop="http://www.springframework.org/schema/aop"
     xmlns:mvc="http://www.springframework.org/schema/mvc"
     xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:websocket="http://www.springframework.org/schema/websocket"
     
      xsi:schemaLocation="http://www.springframework.org/schema/beans     
    	http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
    http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
-   http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+   http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+   http://www.springframework.org/schema/websocket
+   http://www.springframework.org/schema/websocket/spring-websocket.xsd"
+   >
    
 
   <context:component-scan base-package="com.samplebackend" />
@@ -39,17 +43,17 @@
    
    <bean id="dataSource" 
 	      class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-	      <property name="driverClassName" value="org.h2.Driver"/>
-	      <property name="url" value="jdbc:h2:~/com.sample1;AUTO_SERVER=TRUE;DB_CLOSE_ON_EXIT=FALSE;"/>
-	      <property name="username" value="sa"/>
-	      <property name="password" value=""/>
+	      <property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+	      <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+	      <property name="username" value="viksit"/>
+	      <property name="password" value="viksit_123"/>
 	   </bean>
    
    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="hibernateProperties">
 			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
 			</props>
@@ -62,7 +66,8 @@
             <value>com.samplebackend.friend</value>
             <value>com.samplebackend.Blog</value>
             <value>com.samplebackend.Event</value>
-            <!-- <value>com.samplebackend.Interested</value> -->
+            <value>com.samplebackend.Interested</value>
+            <value>com.samplebackend.job</value>
 		</list>
 		</property>
 		
@@ -71,4 +76,14 @@
           class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         	<property name="maxUploadSize" value="100000000"/>
     	</bean>
+    	
+    	
+    	 <websocket:message-broker application-destination-prefix="/app" >
+    <websocket:stomp-endpoint path="/chat, /privatechat">
+                <websocket:sockjs/>
+        </websocket:stomp-endpoint>
+    <websocket:simple-broker prefix="/topic, /queue"/>
+  		</websocket:message-broker>
+    	
+    	
 		</beans>
